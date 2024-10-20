@@ -34,8 +34,15 @@
           </h1>
           <br></br>
           <p style="line-height:1" align="center"><b>
-              <font color="061E61">Anonymous Authors
+              <font color="061E61">Yuji Wang<sup>*</sup>, Zehua Chen<sup>*</sup>, Xiaoyu Chen, 
+                Jun Zhu, Jianfei Chen</font>
             </b></p>
+            <p style="line-height:0.6" align="center">
+            <font color="061E61">Tsinghua Univeristy</font>
+          </p>
+          <p style="line-height:1" align="center">
+            <font color="061E61"><sup>*</sup>Equal Contribution</font>
+          </p>
           <section itemprop="entry-text">
             <br>
             <h2 id="abstract">
@@ -55,7 +62,8 @@
                 (2) our proposed SAF and neural prior effectively enhance the ability of bridge-based I2V models in the scenarios of fine-tuning and training from scratch.               
               </font>
             </p>
-
+            
+            <br></br>
             <h2 id="note">
               <font color="000093">Innovations</font>
             </h2>
@@ -69,26 +77,34 @@
               <font color="061E61"> <b>Neural prior</b> finds a stronger prior than the static image for video target, further improving the performance of FrameBridge.</font>
             </li>
 
-            <br></br>
             <figure>
               <p align="center"><img src="figures/Figure1_process.svg" width="100%" class="center" /></p>
               <figcaption>
                 <p style="text-align: justify;">
                   <font color="061E61"><b>Figure 1:</b> Overview of FrameBridge and diffusion-based I2V models. 
-                    The sampling process of FrameBridge (upper) starts from a deterministic data point, while diffusion-based I2V systems (lower) synthesize videos from pure Gaussian noise.
+                    The sampling process of FrameBridge (upper) starts from a deterministic data point, while diffusion models (lower) synthesize videos from Gaussian noise.
                 </p>
               </figcaption>
             </figure>
-            
 
             <br></br>
             <h2 id="FrameBridge VS Diffusion Counterpart">
               <font color="000093">FrameBridge VS Diffusion Counterpart</font>
             </h2>
-
-            <p><b>
+            <br></br>
+            <figure>
+              <p align="center"><img src="figures/Figure1_marginal.svg" width="100%" class="center" /></p>
+              <figcaption>
+                <p style="text-align: justify;">
+                  <font color="061E61"><b>Figure 2:</b> Visualization for the mean value of marginal distributions. 
+                    We visualize the decoded mean value $D(\mu_t(\cdot))$ of bridge process and diffusion process, where $D$ is the pre-trained VAE decoder. 
+                    As shown, the prior and target of FrameBridge are naturally fitted with I2V synthesis. The data information is preserved along bridge process, while it gradually vanishes in the forward diffusion process.
+                </p>
+              </figcaption>
+            </figure>
+            <li><b>
                 <font color="061E61">Training from scratch on UCF-101:</font>
-            </b></p>
+            </b></li>
 
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
@@ -179,10 +195,9 @@
               </thead>
             </table>
 
-            <p><b>
+            <li><b>
                 <font color="061E61">Fine-tuning pre-trained VideoCrafter-1 (Text2Video) on WebVid and Testing FrameBridge in a Zero-shot Manner:</font>
-            </b></p>
-
+            </b></li>
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
                 <tr>
@@ -304,10 +319,19 @@
             <h2 id="Ablation on SNR-Aligned Fine-tuning">
               <font color="000093">Ablation on SNR-Aligned Fine-tuning</font>
             </h2>
-
-            <p><b>
+            <br></br>
+            <figure>
+              <p align="center"><img src="figures/FIgure2_SAF.svg" width="60%" height="60%" class="center" /></p>
+              <figcaption>
+                <p style="text-align: justify;">
+                  <font color="061E61"><b>Figure 3:</b> SNR-Aligned Fine-tuning for FrameBridge.
+                    SAF technique aligns the marginal distributions of FrameBridge with that of pre-trained Gaussian diffusion models, to improve fine-tuning efficiency.
+                </p>
+              </figcaption>
+            </figure>
+            <li><b>
                 <font color="061E61">Zero-shot Testing on MSR-VTT:</font>
-            </b></p>
+            </b></li>
 
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
@@ -398,9 +422,9 @@
               </thead>
             </table>
 
-          <p><b>
+          <li><b>
               <font color="061E61">Zero-shot Testing on UCF-101:</font>
-          </b></p>
+          </b></li>
 
           <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
             <thead>
@@ -492,9 +516,9 @@
           </table>
           
 
-          <p><b>
+          <li><b>
               <font color="061E61">Zero-shot Testing with Other Prompt:</font>
-          </b></p>
+          </b></li>
 
           <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
             <thead>
@@ -590,10 +614,20 @@
             <h2 id="Ablation on Neural Prior">
               <font color="000093">Ablation on Neural Prior</font>
             </h2>
+            <br></br>
+            <figure>
+              <p align="center"><img src="figures/Figure4_NP.svg" width="100%" class="center" /></p>
+              <figcaption>
+                <p style="text-align: justify;">
+                  <font color="061E61"><b>Figure 4:</b> Case of neural prior.
+                    The neural prior provides more motion information than a static image, and have been closer to the reference video in dataset.
+                </p>
+              </figcaption>
+            </figure>
 
-            <p><b>
+            <li><b>
                 <font color="061E61">Training from Scratch on UCF-101:</font>
-            </b></p>
+            </b></li>
 
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
